@@ -166,7 +166,8 @@ const crearTBody = (vehiculos) => {
             <td>${vehiculos[index].marcaDestino}</td>
             <td>${vehiculos[index].carroceria}</td>
             <td>
-                <input type="button" class="btn btn-primary col-auto" value="Testear" onclick="testearVehiculo(${index})"></input>
+                <input type="button" class="btn btn-primary col-auto" value="Testear" onclick="testearVehiculo(${index})" data-bs-toggle="modal"
+                data-bs-target="#modal-test-vehiculo"></input>
             </td>
             `
         tabla.appendChild(fila);

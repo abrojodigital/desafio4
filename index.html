@@ -47,7 +47,6 @@
         </div>
         <!-- Button trigger modal -->
 
-
         <!-- Modal Vehículo  -->
         <div class="modal fade" id="modal-vehiculo" tabindex="-1" aria-labelledby="modal-vehiculo" aria-hidden="true">
             <div class="modal-dialog">
@@ -103,40 +102,95 @@
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" id="vehiculo-alta-gama" >
-                                  <label class="form-check-label" for="vehiculo-alta-gama">
-                                    Vehículo Alta Gama
-                                  </label>
+                                    <input class="form-check-input" type="checkbox" id="vehiculo-alta-gama">
+                                    <label class="form-check-label" for="vehiculo-alta-gama">
+                                        Vehículo Alta Gama
+                                    </label>
                                 </div>
-                              </div>
+                            </div>
 
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" onclick="agregarVehiculo()" data-bs-dismiss="modal">Guardar Cambios</button>
+                        <button type="button" class="btn btn-primary" onclick="agregarVehiculo()"
+                            data-bs-dismiss="modal">Guardar Cambios</button>
                     </div>
                 </div>
             </div>
         </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-striped" id="tabla-autos">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Ruedas</th>
-                        <th>Modelo</th>
-                        <th>Marca</th>
-                        <th>Carrocería</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="modal fade" id="modal-test-vehiculo" tabindex="-1" aria-labelledby="modal-test-vehiculo"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Test de Vehículos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3">
+                            <div class="col-auto">
+                                <input id="encender-vehiculo" type="button" class="btn btn-primary col-auto" value="Encender Vehículo"></input>
+                            </div>
+                            <div class="col-auto">
+                                <input id="encender-luces" type="button" class="btn btn-primary col-auto" value="Encender Luces"></input>
+                            </div>
+                            <div class="col-auto">
+                                <input id="tocar-bocina" type="button" class="btn btn-primary col-auto" value="Tocar Bocina"></input>
+                            </div>
+                            <div class="col-auto">
+                                <input id="mover-vehiculo" type="button" class="btn btn-primary col-auto" value="Mover Vehículo"></input>
+                            </div>
+                            <div class="col-auto">
+                                <input id="frenar-vehiculo" type="button" class="btn btn-primary col-auto" value="Frenar Vehículo"></input>
+                            </div>
+                            <div class="col-auto">
+                                <input id="apagar-luces" type="button" class="btn btn-primary col-auto" value="Apagar Luces"></input>
+                            </div>
+                            <div class="col-auto">
+                                <input id="apagar-vehiculo" type="button" class="btn btn-primary col-auto" value="Apagar Vehículo"></input>
+                            </div>
+                            <div class="mb-3">
+                                <p id="mensaje" class="form-label"></p>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="vehiculo-apto">
+                                    <label class="form-check-label" for="vehiculo-apto">
+                                        Vehículo Apto
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped" id="tabla-autos">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Ruedas</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Carrocería</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 
