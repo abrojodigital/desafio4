@@ -58,13 +58,13 @@ class Vehiculo {
 
         this.encenderMotor();
         apto += this.motorEncendido ? 1 : 0;
-        this.moverAuto();
+        this.mover();
         if (this.velocidad === 50) apto += 1;
         this.accionarBocina();
         if (this.accionarBocina === "TU TUUU; TU TUUUU!") apto += 1;
         this.prenderLuces();
         apto += this.lucesPrendidas ? 1 : 0;
-        this.frenarAuto();
+        this.frenar();
         if (this.velocidad === 0) apto += 1;
         this.apagarLuces();
         apto += this.lucesPrendidas ? 0 : 1;
@@ -84,7 +84,7 @@ class Vehiculo {
         this.motorEncendido = false;
     }
 
-    moverAuto() {
+    mover() {
         if (this.motorEncendido) {
             while (this.velocidad >= 0 && this.velocidad < 50) {
                 this.velocidad++;
@@ -97,7 +97,7 @@ class Vehiculo {
         }
     }
 
-    frenarAuto() {
+    frenar() {
         if (this.motorEncendido) {
             while (this.velocidad > 0) {
                 this.velocidad -= 1;
@@ -160,7 +160,7 @@ const crearTBody = (vehiculos) => {
     for (let index = 0; index < vehiculos.length; index++) {
         const fila = document.createElement('tr');
         fila.innerHTML += `
-            <td>${index+1}</td>
+            <td>${index + 1}</td>
             <td>${vehiculos[index].ruedas}</td>
             <td>${vehiculos[index].modelo}</td>
             <td>${vehiculos[index].marcaDestino}</td>
@@ -204,12 +204,86 @@ const crearDiezVehiculos = () => {
 }
 
 const testearVehiculo = (indiceVehiculo) => {
-    vehiculos[indiceVehiculo].verificarApto();
-    if (vehiculos[indiceVehiculo].apto) {
-        alert("El vehículo es apto");
-    } else {
-        alert("El vehículo no es apto");
-    }
+
+    let mensaje = document.querySelector('#mensaje-vehiculo');
+    let luces = document.querySelector('#luces');
+    let bocina = document.querySelector('#bocina');
+    /*
+    clase Vehiculo
+    Atributos:
+        ruedas
+        puertas
+        carroceria : chica, mediana o grande
+        modelo : moto, auto, camioneta
+        marcaDestino : Ford, Fiat, BW, Audi
+        velocidad : arranca en 0
+        motorEncendido : false
+        lucesPremdidas : false
+*/
+    let modeloVehiculo = document.querySelector('#modelo-vehiculo').innerHTML = vehiculos[indiceVehiculo].modelo;
+    let marcaVehiculo = document.querySelector('#marca-vehiculo').innerHTML = vehiculos[indiceVehiculo].marcaDestino;
+    let carroceriaVehiculo = document.querySelector('#carroceria-vehiculo').innerHTML = vehiculos[indiceVehiculo].carroceria;
+    let ruedasVehiculo = document.querySelector('#ruedas-vehiculo').innerHTML = vehiculos[indiceVehiculo].ruedas;
+    let puertasVehiculo = document.querySelector('#puertas-vehiculo').innerHTML = vehiculos[indiceVehiculo].puertas;
+    let altaGama = document.querySelector('#alta-gama').innerHTML = vehiculos[indiceVehiculo].techoCorredizo ? "Si" : "No";
+
+
+    const btnEncender = document.querySelector('#btn-encender');
+    const btnTocarBocina = document.querySelector('#btn-tocar-bocina');
+    const btnPrenderLuces = document.querySelector('#btn-prender-luces');
+    const btnFrenar = document.querySelector('#btn-frenar');
+    const btnApagarLuces = document.querySelector('#btn-apagar-luces');
+    const btnApagarMotor = document.querySelector('#btn-apagar-motor');
+    const btnMover = document.querySelector('#btn-mover');
+    const chkVehiculoApto = document.querySelector('#vehiculo-apto');
+
+    btnApagarMotor.disabled = true;
+
+    btnEncender.addEventListener('click', () => {
+        vehiculos[indiceVehiculo].encenderMotor();
+        mensaje.innerHTML = vehiculos[indiceVehiculo].motorEncendido ? "Motor encendido" : "Motor Apagado";
+        btnEncender.disabled = true;
+        btnApagarMotor.disabled = false;
+    });
+    btnApagarMotor.addEventListener('click', () => {
+        vehiculos[indiceVehiculo].apagarMotor();
+        mensaje.innerHTML = vehiculos[indiceVehiculo].motorEncendido ? "Motor encendido" : "El motor no está encendido";
+        btnEncender.disabled = false;
+        btnApagarMotor.disabled = true;
+    });
+
+    btnTocarBocina.addEventListener('click', () => {
+        bocina.innerHTML = vehiculos[indiceVehiculo].accionarBocina();
+        setTimeout(() => {
+            setInterval(() => {
+                bocina.innerHTML = bocina.innerHTML = "";
+            });
+        }, 2000);
+    });
+
+    btnPrenderLuces.addEventListener('click', () => {
+        vehiculos[indiceVehiculo].prenderLuces()
+        luces.innerHTML = vehiculos[indiceVehiculo].lucesPrendidas ? "Luces prendidas" : "Luces apagadas";
+    });
+
+    btnApagarLuces.addEventListener('click', () => {
+        vehiculos[indiceVehiculo].apagarLuces()
+        luces.innerHTML = vehiculos[indiceVehiculo].luces ? "Luces encendidas" : "Luces apagadas";
+    });
+    btnMover.addEventListener('click', () => {
+        vehiculos[indiceVehiculo].mover();
+        mensaje.innerHTML = vehiculos[indiceVehiculo].motorEncendido ? `Motor encendido - velocidad actual: ${vehiculos[indiceVehiculo].velocidad}` : "Motor Apagado";
+    });
+
+    btnFrenar.addEventListener('click', () => {
+        vehiculos[indiceVehiculo].frenar()
+        mensaje.innerHTML = vehiculos[indiceVehiculo].motorEncendido ? `Motor encendido - velocidad actual: ${vehiculos[indiceVehiculo].velocidad}` : "Motor Apagado";
+    });
+
+    chkVehiculoApto.addEventListener('change', () => {
+        vehiculos[indiceVehiculo].apto = chkVehiculoApto.checked;
+        mensaje.innerHTML = vehiculos[indiceVehiculo].apto ? "Vehículo apto" : "Vehículo no apto";
+    });
 }
 
 const verificarAptoVehiculos = () => {

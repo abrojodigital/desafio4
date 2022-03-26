@@ -129,30 +129,47 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <div class="row">
+                            <div class="col-auto">
+                                <h4>Detalles Vehículo</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-auto">
+                                <p>Modelo: <span id="modelo-vehiculo"></span></p>
+                                <p>Marca Destino: <span id="marca-vehiculo"></span></p>
+                                <p>Ruedas: <span id="ruedas-vehiculo"></span></p>
+                                <p>Puertas: <span id="puertas-vehiculo"></span></p>
+                                <p>Carroceria: <span id="carroceria-vehiculo"></span></p>
+                                <p>Alta gama: <span id="alta-gama"></span></p>
+                            </div>
+                        </div>
                         <form class="row g-3">
                             <div class="col-auto">
-                                <input id="encender-vehiculo" type="button" class="btn btn-primary col-auto" value="Encender Vehículo"></input>
+                                <input id="btn-encender" type="button" class="btn btn-primary col-auto" value="Encender Vehículo"></input>
                             </div>
                             <div class="col-auto">
-                                <input id="encender-luces" type="button" class="btn btn-primary col-auto" value="Encender Luces"></input>
+                                <input id="btn-apagar-motor" type="button" class="btn btn-primary col-auto" value="Apagar Vehículo"></input>
                             </div>
                             <div class="col-auto">
-                                <input id="tocar-bocina" type="button" class="btn btn-primary col-auto" value="Tocar Bocina"></input>
+                                <input id="btn-prender-luces" type="button" class="btn btn-primary col-auto" value="Encender Luces"></input>
                             </div>
                             <div class="col-auto">
-                                <input id="mover-vehiculo" type="button" class="btn btn-primary col-auto" value="Mover Vehículo"></input>
+                                <input id="btn-apagar-luces" type="button" class="btn btn-primary col-auto" value="Apagar Luces"></input>
                             </div>
                             <div class="col-auto">
-                                <input id="frenar-vehiculo" type="button" class="btn btn-primary col-auto" value="Frenar Vehículo"></input>
+                                <input id="btn-tocar-bocina" type="button" class="btn btn-primary col-auto" value="Tocar Bocina"></input>
                             </div>
                             <div class="col-auto">
-                                <input id="apagar-luces" type="button" class="btn btn-primary col-auto" value="Apagar Luces"></input>
+                                <input id="btn-mover" type="button" class="btn btn-primary col-auto" value="Mover Vehículo"></input>
                             </div>
                             <div class="col-auto">
-                                <input id="apagar-vehiculo" type="button" class="btn btn-primary col-auto" value="Apagar Vehículo"></input>
+                                <input id="btn-frenar" type="button" class="btn btn-primary col-auto" value="Frenar Vehículo"></input>
                             </div>
-                            <div class="mb-3">
-                                <p id="mensaje" class="form-label"></p>
+                            <div class="row g-2">
+                                <p id="mensaje-vehiculo" class="form-label"></p>
+                                <p id="luces" class="form-label"></p>
+                                <p id="bocina" class="form-label"></p>
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
@@ -163,8 +180,6 @@
                                 </div>
                             </div>
                         </form>
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
