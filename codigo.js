@@ -165,6 +165,7 @@ const crearTBody = (vehiculos) => {
             <td>${vehiculos[index].modelo}</td>
             <td>${vehiculos[index].marcaDestino}</td>
             <td>${vehiculos[index].carroceria}</td>
+            <td>$ ${vehiculos[index].costoFabricacion}</td>
             <td>
                 <input type="button" class="btn btn-primary col-auto" value="Testear" onclick="testearVehiculo(${index})" data-bs-toggle="modal"
                 data-bs-target="#modal-test-vehiculo"></input>
